@@ -1,5 +1,4 @@
 import HeroSection from "@/components/landing/HeroSection";
-import TransformationsSection from "@/components/landing/TransformationsSection";
 import ProblemSection from "@/components/landing/ProblemSection";
 import SolutionSection from "@/components/landing/SolutionSection";
 import CTABreakSection from "@/components/landing/CTABreakSection";
@@ -16,7 +15,6 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background">
       <HeroSection />
-      <TransformationsSection />
       <ProblemSection />
       <SolutionSection />
       <CTABreakSection />

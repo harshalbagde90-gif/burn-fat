@@ -31,6 +31,20 @@ const HeroSection = () => {
             Join 10,000+ who've already transformed their bodies.
           </p>
 
+          {/* Hero video */}
+          <div className="mt-8 mb-10 max-w-3xl mx-auto">
+            <div className="aspect-video rounded-3xl overflow-hidden vignette-dark">
+              <video
+                className="w-full h-full object-cover"
+                src="/Product%20image%20adn%20videos/demo%20video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            </div>
+          </div>
+
           {/* CTA Button */}
           <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <Button 

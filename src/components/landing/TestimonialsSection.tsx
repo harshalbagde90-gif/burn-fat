@@ -1,5 +1,5 @@
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
 const testimonials = [
@@ -45,6 +45,13 @@ const TestimonialsSection = () => {
   const prev = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <section className="py-20 md:py-32 bg-secondary/30">

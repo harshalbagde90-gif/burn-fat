@@ -134,6 +134,18 @@
   .glow-effect {
     box-shadow: 0 0 60px -10px hsl(355 100% 64% / 0.5);
   }
+
+  .vignette-dark {
+    position: relative;
+  }
+  .vignette-dark::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(ellipse at center, transparent 55%, hsl(0 0% 0% / 0.75) 100%);
+  }
 }
 
 @keyframes fadeIn {

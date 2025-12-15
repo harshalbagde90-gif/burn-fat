@@ -5,16 +5,19 @@ const articles = [
     category: "Nutrition",
     title: "10 Foods That Boost Your Metabolism Naturally",
     description: "Discover the science-backed foods that can help accelerate your fat-burning potential.",
+    image: "/Product%20image%20adn%20videos/images/image-1.png",
   },
   {
     category: "Fitness",
     title: "The 15-Minute Morning Routine for Weight Loss",
     description: "A quick, effective workout routine you can do at home to kickstart your metabolism.",
+    image: "/Product%20image%20adn%20videos/images/image-2.png",
   },
   {
     category: "Lifestyle",
     title: "How Sleep Affects Your Weight Loss Journey",
     description: "Learn why quality sleep is essential for burning fat and maintaining a healthy weight.",
+    image: "/Product%20image%20adn%20videos/images/image-3.png",
   },
 ];
 
@@ -41,9 +44,14 @@ const BlogSection = () => {
               key={index}
               className="group bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 hover-lift cursor-pointer"
             >
-              {/* Image placeholder */}
-              <div className="aspect-video bg-secondary flex items-center justify-center">
-                <span className="text-muted-foreground text-sm">Article Image</span>
+              {/* Article image */}
+              <div className="aspect-video bg-secondary">
+                <img 
+                  src={article.image} 
+                  alt={article.title} 
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
 
               {/* Content */}

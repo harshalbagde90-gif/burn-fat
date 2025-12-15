@@ -40,13 +40,17 @@ const SolutionSection = () => {
             </ul>
           </div>
 
-          {/* Product mockup placeholder */}
+          {/* Product video */}
           <div className="relative">
-            <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-secondary to-muted rounded-3xl flex items-center justify-center glow-effect">
-              <div className="text-center">
-                <div className="w-32 h-48 bg-gradient-to-b from-primary/30 to-primary/10 rounded-2xl mx-auto mb-4 border border-primary/30" />
-                <span className="text-muted-foreground">Product Image</span>
-              </div>
+            <div className="aspect-square max-w-md mx-auto bg-transparent rounded-3xl overflow-hidden glow-effect animate-pulse-glow">
+              <video
+                className="w-full h-full object-cover rounded-3xl"
+                src="/Product%20image%20adn%20videos/final%20video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
             </div>
           </div>
         </div>
