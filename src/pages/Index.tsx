@@ -1,13 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import HeroSection from "@/components/landing/HeroSection";
+import TransformationsSection from "@/components/landing/TransformationsSection";
+import ProblemSection from "@/components/landing/ProblemSection";
+import SolutionSection from "@/components/landing/SolutionSection";
+import CTABreakSection from "@/components/landing/CTABreakSection";
+import BenefitsSection from "@/components/landing/BenefitsSection";
+import IngredientsSection from "@/components/landing/IngredientsSection";
+import PricingSection from "@/components/landing/PricingSection";
+import EmailSignupSection from "@/components/landing/EmailSignupSection";
+import TestimonialsSection from "@/components/landing/TestimonialsSection";
+import BlogSection from "@/components/landing/BlogSection";
+import FAQSection from "@/components/landing/FAQSection";
+import FooterSection from "@/components/landing/FooterSection";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="min-h-screen bg-background">
+      <HeroSection />
+      <TransformationsSection />
+      <ProblemSection />
+      <SolutionSection />
+      <CTABreakSection />
+      <BenefitsSection />
+      <IngredientsSection />
+      <PricingSection />
+      <EmailSignupSection />
+      <TestimonialsSection />
+      <BlogSection />
+      <FAQSection />
+      <FooterSection />
+    </main>
   );
 };
 
