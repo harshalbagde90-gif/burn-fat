@@ -27,7 +27,7 @@ const CTABreakSection = () => {
           <Button 
             size="lg" 
             variant="secondary"
-            className="bg-foreground text-background hover:bg-foreground/90 text-lg md:text-xl px-8 md:px-12 py-6 md:py-8 h-auto rounded-full font-bold group"
+            className="bg-foreground text-background hover:bg-foreground/90 text-base sm:text-lg md:text-xl px-6 md:px-12 py-4 md:py-8 h-auto rounded-full font-bold group w-full sm:w-auto whitespace-normal"
           >
             START YOUR TRANSFORMATION
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

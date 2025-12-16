@@ -1,11 +1,76 @@
 import { Users, Zap, TrendingUp, Package } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
 
 const stats = [
-  { icon: Users, value: "10,000+", label: "Transformations" },
-  { icon: Zap, value: "3x", label: "Faster Fat Loss" },
-  { icon: TrendingUp, value: "98%", label: "Success Rate" },
-  { icon: Package, value: "30-Day", label: "Supply" },
+  { icon: Users, value: 10000, suffix: "+", label: "Transformations" },
+  { icon: Zap, value: 3, suffix: "x", label: "Faster Fat Loss" },
+  { icon: TrendingUp, value: 98, suffix: "%", label: "Success Rate" },
+  { icon: Package, value: 30, suffix: "-Day", label: "Supply" },
 ];
+
+const useCounter = (end: number, duration: number = 2000, start: boolean = false) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!start) return;
+
+    let startTime: number | null = null;
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      setCount(Math.floor(progress * end));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [end, duration, start]);
+
+  return count;
+};
+
+const StatCard = ({ stat, index }: { stat: typeof stats[0], index: number }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const count = useCounter(stat.value, 2000, isVisible);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div 
+      ref={ref}
+      className="bg-card p-6 rounded-2xl border border-border text-center hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_-5px_hsl(355_100%_64%_/_0.3)] hover:-translate-y-1"
+    >
+      <stat.icon className="h-8 w-8 text-primary mx-auto mb-3" />
+      <div className="text-3xl md:text-4xl font-black text-foreground mb-1">
+        {count.toLocaleString()}{stat.suffix}
+      </div>
+      <div className="text-sm text-muted-foreground">{stat.label}</div>
+    </div>
+  );
+};
 
 const SolutionSection = () => {
   return (
@@ -58,14 +123,7 @@ const SolutionSection = () => {
         {/* Stats grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-16 max-w-4xl mx-auto">
           {stats.map((stat, index) => (
-            <div 
-              key={stat.label}
-              className="bg-card p-6 rounded-2xl border border-border text-center hover:border-primary/50 transition-colors"
-            >
-              <stat.icon className="h-8 w-8 text-primary mx-auto mb-3" />
-              <div className="text-3xl md:text-4xl font-black text-foreground mb-1">{stat.value}</div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
-            </div>
+            <StatCard key={stat.label} stat={stat} index={index} />
           ))}
         </div>
       </div>

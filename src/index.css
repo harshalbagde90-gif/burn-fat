@@ -146,6 +146,26 @@
     border-radius: inherit;
     background: radial-gradient(ellipse at center, transparent 55%, hsl(0 0% 0% / 0.75) 100%);
   }
+
+  .vignette-fade {
+    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+    mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+  }
+
+  .vignette-black-edges {
+    position: relative;
+  }
+  .vignette-black-edges::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+      radial-gradient(ellipse at center, transparent 50%, #000 100%),
+      linear-gradient(to right, #000 0%, transparent 20%, transparent 80%, #000 100%),
+      linear-gradient(to bottom, #000 0%, transparent 20%, transparent 80%, #000 100%);
+  }
 }
 
 @keyframes fadeIn {

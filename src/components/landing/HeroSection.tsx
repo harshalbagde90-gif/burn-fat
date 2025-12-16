@@ -33,7 +33,7 @@ const HeroSection = () => {
 
           {/* Hero video */}
           <div className="mt-8 mb-10 max-w-3xl mx-auto">
-            <div className="aspect-video rounded-3xl overflow-hidden vignette-dark">
+            <div className="aspect-video rounded-3xl overflow-hidden vignette-black-edges">
               <video
                 className="w-full h-full object-cover"
                 src="/Product%20image%20adn%20videos/demo%20video.mp4"
